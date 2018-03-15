@@ -1,6 +1,5 @@
-const encryption = require("../utilities/encryption");
+
 const User = require('../models').User;
-const Article = require('../models').Article;
 
 module.exports = {
     registerGet: (req, res) => {
@@ -56,7 +55,7 @@ module.exports = {
             if (!user ||!user.authenticate(loginArgs.password)) {
                 loginArgs.error = 'Either username or password is invalid!';
                 res.render('user/login', loginArgs);
-                console.log(loginArgs);
+                console.log(loginArgs)
                 return;
             }
 

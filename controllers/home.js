@@ -1,5 +1,10 @@
+const Article = require('../models').Article;
+const User = require('../models').User;
+
 module.exports = {
     index: (req, res) => {
-        res.render('home/index');
+        Article.findAll({ limit: 6}).then(articles=>{
+            res.render('home/index',{articles: articles});
+        })
     }
 };
